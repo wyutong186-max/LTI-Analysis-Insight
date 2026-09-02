@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 LTI-Insight Streamlit 界面。
-Tab：概览（含单页洞察概览）/ 更新 / 数据库 / 报告 / 同步
+Tab：公司明细 / 更新 / 数据库 / 报告 / 同步
 """
 import os
 import sys
@@ -160,40 +160,42 @@ def _d(s, fallback=None):
         return fallback or datetime.date.today()
 
 
-# ============================ 概览 ============================
+# ============================ 公司明细（首屏） ============================
+def _companies_df(recs):
+    """把 records 转成「公司明细」表格用的行列表（与数据库页共用）。"""
+    return [{
+        "代码": r["code"], "名称": r["name"], "板块": r["board"], "工具": r["tool_type"],
+        "总数(万)": r["total_shares_wan"], "占股本": f"{r['total_pct']*100:.2f}%",
+        "授予价": r["grant_price"],
+        "折扣率": (f"{r['discount_rate']*100:.0f}%" if r.get("discount_rate") else "组合"),
+        "人数": r["n_recipients"], "公告日": r["announce_date"],
+    } for r in recs]
+
+
 def tab_overview():
-    st.header("概览")
+    st.header("公司明细")
     data = store.load()
+    recs = data["records"]
+    st.caption(DISCLAIMER)
+    st.caption("数据来源：巨潮资讯网 A股 股权激励 / 员工持股计划草案公告")
+
     s = store.stats(data)
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("样本公司", s["n"])
     c2.metric("合计激励(万股)", f"{s['total_shares_wan']:,.1f}")
     c3.metric("含高管方案", s["with_exec"])
     c4.metric("板块数", len(s["boards"]))
-    st.subheader("板块分布")
-    st.bar_chart(s["boards"])
-    st.subheader("工具分布")
-    st.bar_chart(s["tools"])
-    st.caption("数据来源：巨潮资讯网 A股 股权激励 / 员工持股计划草案公告")
-    st.caption(DISCLAIMER)
 
-    # ——— 单页洞察概览（原「作品集」页，已合并至概览底部）———
-    st.subheader("单页洞察概览")
-    st.caption("随库中数据自动更新的单页概览，可下载后离线打开或直接分享。")
-    try:
-        pf_path = portfolio.generate_portfolio(data["records"])
-        with open(pf_path, encoding="utf-8") as f:
-            pf_html = f.read()
-        components.html(pf_html, height=1200, scrolling=True)
-        with open(pf_path, "rb") as f:
-            st.download_button(
-                "下载单页洞察 HTML",
-                f.read(),
-                file_name="LTI洞察_单页概览.html",
-                key="dl_pf",
-            )
-    except Exception as e:  # 预览失败不应影响主流程
-        st.warning(f"单页概览生成失败：{e}")
+    st.subheader("公司明细清单")
+    st.dataframe(
+        _companies_df(recs),
+        width="stretch",
+        column_config={
+            "总数(万)": st.column_config.NumberColumn("总数(万)", format="%.2f"),
+            "授予价": st.column_config.NumberColumn("授予价", format="%.2f"),
+            "人数": st.column_config.NumberColumn("人数", format="%d"),
+        },
+    )
 
 
 # ============================ 更新 ============================
@@ -323,10 +325,7 @@ def tab_db():
         filt = [r for r in filt if r.get("board") in sel_b]
     if sel_t:
         filt = [r for r in filt if r.get("tool_type") in sel_t]
-    df = [{"代码": r["code"], "名称": r["name"], "板块": r["board"], "工具": r["tool_type"],
-           "总数(万)": r["total_shares_wan"], "占股本": f"{r['total_pct']*100:.2f}%",
-           "授予价": r["grant_price"], "折扣率": (f"{r['discount_rate']*100:.0f}%" if r.get("discount_rate") else "组合"),
-           "人数": r["n_recipients"], "公告日": r["announce_date"]} for r in filt]
+    df = _companies_df(filt)
     st.dataframe(df, width="stretch")
     if st.button("重新生成按模板 Excel", key="regen"):
         _rebuild(data)
@@ -400,7 +399,7 @@ def tab_config():
 
 
 TABS = {
-    "概览": tab_overview,
+    "公司明细": tab_overview,
     "更新": tab_update,
     "数据库": tab_db,
     "报告": tab_report,
