@@ -162,13 +162,26 @@ def _d(s, fallback=None):
 
 # ============================ 公司明细（首屏） ============================
 def _companies_df(recs):
-    """把 records 转成「公司明细」表格用的行列表（与数据库页共用）。"""
+    """把 records 转成「公司明细」表格用的行列表（与数据库页共用）。
+    数字列预格式化为字符串，避免 st.dataframe 的 column_config NumberColumn
+    在 Streamlit 1.63 + pandas 3.0 + pyarrow 序列化路径上偶发崩溃（白屏）。"""
+    def _fmt_shares(v):
+        try:
+            return f"{float(v):,.2f}"
+        except (TypeError, ValueError):
+            return str(v)
+    def _fmt_price(v):
+        try:
+            return f"{float(v):.2f}"
+        except (TypeError, ValueError):
+            return str(v)
     return [{
         "代码": r["code"], "名称": r["name"], "板块": r["board"], "工具": r["tool_type"],
-        "总数(万)": r["total_shares_wan"], "占股本": f"{r['total_pct']*100:.2f}%",
-        "授予价": r["grant_price"],
+        "总数(万)": _fmt_shares(r["total_shares_wan"]),
+        "占股本": f"{r['total_pct']*100:.2f}%",
+        "授予价": _fmt_price(r["grant_price"]),
         "折扣率": (f"{r['discount_rate']*100:.0f}%" if r.get("discount_rate") else "组合"),
-        "人数": r["n_recipients"], "公告日": r["announce_date"],
+        "人数": str(r["n_recipients"]), "公告日": r["announce_date"],
     } for r in recs]
 
 
@@ -187,15 +200,7 @@ def tab_overview():
     c4.metric("板块数", len(s["boards"]))
 
     st.subheader("公司明细清单")
-    st.dataframe(
-        _companies_df(recs),
-        width="stretch",
-        column_config={
-            "总数(万)": st.column_config.NumberColumn("总数(万)", format="%.2f"),
-            "授予价": st.column_config.NumberColumn("授予价", format="%.2f"),
-            "人数": st.column_config.NumberColumn("人数", format="%d"),
-        },
-    )
+    st.dataframe(_companies_df(recs), width="stretch")
 
 
 # ============================ 更新 ============================
