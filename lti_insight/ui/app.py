@@ -20,6 +20,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 from lti_insight.core import store, fill_excel, report, portfolio, fetch, parse, extract, sync
+from lti_insight.core.demo_template import DISCLAIMER
 from lti_insight.config.loader import load_settings, path_of
 
 st.set_page_config(
@@ -174,6 +175,7 @@ def tab_overview():
     st.subheader("工具分布")
     st.bar_chart(s["tools"])
     st.caption("数据来源：巨潮资讯网 A股 股权激励 / 员工持股计划草案公告")
+    st.caption(DISCLAIMER)
 
     # ——— 单页洞察概览（原「作品集」页，已合并至概览底部）———
     st.subheader("单页洞察概览")
@@ -293,6 +295,9 @@ def tab_update():
 # ============================ 数据库 ============================
 def tab_db():
     st.header("数据库（按模板活库）")
+    _, is_demo = fill_excel.resolve_headers(path_of("template_xlsx"))
+    if is_demo:
+        st.info(DISCLAIMER)
     data = store.load()
     recs = data["records"]
     # 日期筛选：默认关闭；开启后用日历选择，默认范围取库内公告日区间
@@ -322,7 +327,7 @@ def tab_db():
            "总数(万)": r["total_shares_wan"], "占股本": f"{r['total_pct']*100:.2f}%",
            "授予价": r["grant_price"], "折扣率": (f"{r['discount_rate']*100:.0f}%" if r.get("discount_rate") else "组合"),
            "人数": r["n_recipients"], "公告日": r["announce_date"]} for r in filt]
-    st.dataframe(df, use_container_width=True)
+    st.dataframe(df, width="stretch")
     if st.button("重新生成按模板 Excel", key="regen"):
         _rebuild(data)
         st.success("已刷新 LTI数据库_按模板.xlsx")

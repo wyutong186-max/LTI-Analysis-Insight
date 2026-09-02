@@ -10,6 +10,17 @@ def load_settings():
     with open(p, encoding="utf-8") as f:
         cfg = yaml.safe_load(f) or {}
 
+    # 本机私有覆盖：settings.local.yaml（已在 .gitignore 中，不会外发）
+    local = os.path.join(os.path.dirname(__file__), "settings.local.yaml")
+    if os.path.exists(local):
+        with open(local, encoding="utf-8") as f:
+            loc = yaml.safe_load(f) or {}
+        for k, v in (loc.get("paths") or {}).items():
+            cfg.setdefault("paths", {})[k] = v
+        for k, v in loc.items():
+            if k != "paths":
+                cfg[k] = v
+
     def resolve(v):
         if not v:
             return v

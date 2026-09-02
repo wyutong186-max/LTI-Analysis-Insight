@@ -12,6 +12,8 @@ import re
 from openpyxl import load_workbook, Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from lti_insight.config.loader import path_of
+from lti_insight.core.demo_template import (
+    HEADERS as DEMO_HEADERS, PCT_COLUMNS as DEMO_PCT, SHEETS as DEMO_SHEETS)
 
 
 PCT = "0.00%"
@@ -185,20 +187,46 @@ def make_builders(HEAD):
     return scheme_row, exec_rows_all, perf_row
 
 
-def build_workbook(records, out_path, template_path):
-    twb = load_workbook(template_path, read_only=True, data_only=True)
-    HEAD = {s: [c.value for c in next(twb[s].iter_rows(min_row=1, max_row=1))] for s in twb.sheetnames}
-    twb.close()
+def resolve_headers(template_path=None):
+    """决定用哪套表头。返回 (HEAD, is_demo)。
+
+    - 传入了存在的真实模板 → 读其表头（本地完整工作流，157/39/159 列）
+    - 否则 → 用内置脱敏通用表头（Demo / 云端，模板属公司内部资料不随包外发）
+    """
+    if template_path and os.path.exists(template_path):
+        twb = load_workbook(template_path, read_only=True, data_only=True)
+        HEAD = {s: [c.value for c in next(twb[s].iter_rows(min_row=1, max_row=1))]
+                for s in twb.sheetnames}
+        twb.close()
+        return HEAD, False
+    return {s: list(DEMO_HEADERS[s]) for s in DEMO_SHEETS}, True
+
+
+_PCT_BASE = {
+    "方案": ["激励总数占当时总股本比例(%)", "预留数量占激励总数比(%)", "高管授予总量占比(%)",
+             "第1期解锁比例", "第2期解锁比例", "第3期解锁比例", "第4期解锁比例",
+             "第5期解锁比例", "第6期解锁比例",
+             "期权行权价格/股票授予价格折扣", "期权定价折扣", "股票定价折扣"],
+    "业绩考核": [], "高管": [],
+}
+
+
+def _pct_columns(is_demo):
+    cols = {s: list(v) for s, v in _PCT_BASE.items()}
+    if is_demo:
+        for s, names in DEMO_PCT.items():
+            for c in names:
+                if c not in cols.get(s, []):
+                    cols.setdefault(s, []).append(c)
+    return cols
+
+
+def build_workbook(records, out_path, template_path=None):
+    HEAD, is_demo = resolve_headers(template_path)
 
     scheme_row, exec_rows_all, perf_row = make_builders(HEAD)
     wb = Workbook()
-    pct_cols = {
-        "方案": ["激励总数占当时总股本比例(%)", "预留数量占激励总数比(%)", "高管授予总量占比(%)",
-                 "第1期解锁比例", "第2期解锁比例", "第3期解锁比例", "第4期解锁比例",
-                 "第5期解锁比例", "第6期解锁比例",
-                 "期权行权价格/股票授予价格折扣", "期权定价折扣", "股票定价折扣"],
-        "业绩考核": [], "高管": [],
-    }
+    pct_cols = _pct_columns(is_demo)
     hdr_fill = PatternFill("solid", fgColor="1F3A5F")
     hdr_font = Font(bold=True, color="FFFFFF", size=10)
     thin = Side(style="thin", color="D9E1EA")

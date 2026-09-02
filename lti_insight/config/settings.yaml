@@ -2,8 +2,9 @@
 # 路径若留空则使用项目内默认位置；模板与累积库为个人文件，可按需改成本机真实路径。
 
 paths:
-  # 用户模板（示例.xlsx）：方案/高管/业绩考核 三表，列结构严格对齐
-  template_xlsx: "C:/Users/YvonneT/Desktop/示例.xlsx"
+  # 用户模板（三表：方案 / 高管 / 业绩考核，列结构需严格对齐）。
+  # 该模板属公司内部资料，请勿提交 —— 把你的本机路径写进 settings.local.yaml（已被 .gitignore 忽略）。
+  template_xlsx: ""
   # 工具自身的单一事实源（canonical records JSON）
   records_json: "data/records.json"
   # PDF 文本暂存
