@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 运行日志 / 本地临时
+*.log
+.DS_Store
+
+# Streamlit 本地运行时（云端不需要，本地会自动重建）
+.streamlit/secrets.toml
+
+# 抓取下来的公告原文（体积大、可重新拉取）
+data/staging/*
+!data/staging/.gitkeep
+
+# 个人本地路径配置（含桌面累积库绝对路径，不外传）
+lti_insight/config/settings.local.yaml

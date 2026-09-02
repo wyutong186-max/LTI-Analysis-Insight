@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A股 LTI 洞察 · 项目作品集</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+color:#1A1A2E;background:#F7F9FC;line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+h1{color:#1A1A2E;margin:0 0 4px}
+.sub{color:#6B7280;margin:0 0 24px}
+.card{background:#fff;border:1px solid #E5E9F0;border-radius:12px;padding:20px 22px;margin:16px 0;
+box-shadow:0 1px 3px rgba(16,24,40,.04)}
+.grid2{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.grid2>div{flex:1;min-width:260px}
+h2{font-size:16px;color:#1A1A2E;border-left:4px solid #E31837;padding-left:10px;margin:0 0 12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border:1px solid #E5E9F0;padding:6px 8px;text-align:left}
+th{background:#FBEAED;color:#B8132E}
+.foot{color:#9CA3AF;font-size:12px;text-align:center;margin-top:28px}
+</style></head>
+<body><div class="wrap">
+<h1>A股长期激励（LTI）洞察</h1>
+<p class="sub">从巨潮公告采集 A股股权激励草案，结构化抽取关键字段，按业务模板沉淀为活数据库，并按时段输出热点洞察报告。</p>
+
+<div class="card">
+<h2>产品流程</h2>
+<svg viewBox="0 0 900 90" width="100%" style="max-width:900px" role="img" aria-label="pipeline">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+<path d="M0,0 L6,3 L0,6 Z" fill="#E31837"/></marker></defs>
+<rect x="0" y="30" width="130" height="34" rx="8" fill="#E31837"/><text x="65" y="52" text-anchor="middle" fill="#fff" font-size="13">采集公告</text><line x1="130" y1="47" x2="150" y2="47" stroke="#E31837" stroke-width="2" marker-end="url(#a)"/><rect x="150" y="30" width="130" height="34" rx="8" fill="#EF6A7B"/><text x="215" y="52" text-anchor="middle" fill="#fff" font-size="13">解析原文</text><line x1="280" y1="47" x2="300" y2="47" stroke="#E31837" stroke-width="2" marker-end="url(#a)"/><rect x="300" y="30" width="130" height="34" rx="8" fill="#B8132E"/><text x="365" y="52" text-anchor="middle" fill="#fff" font-size="13">抽取字段</text><line x1="430" y1="47" x2="450" y2="47" stroke="#E31837" stroke-width="2" marker-end="url(#a)"/><rect x="450" y="30" width="130" height="34" rx="8" fill="#7A7F8A"/><text x="515" y="52" text-anchor="middle" fill="#fff" font-size="13">建模入库</text><line x1="580" y1="47" x2="600" y2="47" stroke="#E31837" stroke-width="2" marker-end="url(#a)"/><rect x="600" y="30" width="130" height="34" rx="8" fill="#1F3A5F"/><text x="665" y="52" text-anchor="middle" fill="#fff" font-size="13">洞察分析</text><line x1="730" y1="47" x2="750" y2="47" stroke="#E31837" stroke-width="2" marker-end="url(#a)"/><rect x="750" y="30" width="130" height="34" rx="8" fill="#C9A227"/><text x="815" y="52" text-anchor="middle" fill="#fff" font-size="13">报告输出</text><line x1="880" y1="47" x2="900" y2="47" stroke="#E31837" stroke-width="2" marker-end="url(#a)"/>
+</svg>
+</div>
+
+<div class="grid2 card">
+  <div><h2>激励工具分布（5 家）</h2><svg viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="工具分布">
+<circle cx="120" cy="120" r="90" fill="none" stroke="#EDF1F5" stroke-width="36"/>
+<circle cx="120" cy="120" r="90" fill="none" stroke="#E31837" stroke-width="36" stroke-dasharray="376.99 188.50" stroke-dashoffset="0.00" transform="rotate(-90 120 120)"/>
+<circle cx="120" cy="120" r="90" fill="none" stroke="#B8132E" stroke-width="36" stroke-dasharray="94.25 471.24" stroke-dashoffset="-376.99" transform="rotate(-90 120 120)"/>
+<circle cx="120" cy="120" r="90" fill="none" stroke="#7A7F8A" stroke-width="36" stroke-dasharray="94.25 471.24" stroke-dashoffset="-471.24" transform="rotate(-90 120 120)"/>
+<text x="120" y="116" text-anchor="middle" font-size="20" font-weight="700" fill="#1A1A2E">6</text>
+<text x="120" y="136" text-anchor="middle" font-size="11" fill="#6B7280">家样本</text>
+</svg></div>
+  <div>
+    <h2>折扣率（授予价/市价）</h2>
+    <svg viewBox="0 0 520 130" width="100%" style="max-width:520px" role="img">
+<text x="0" y="24" font-size="12" fill="#374151">温氏股份</text>
+<rect x="120" y="10" width="180.0" height="18" rx="3" fill="#EF6A7B"/>
+<text x="306.0" y="24" font-size="11" fill="#374151">50.0%</text>
+<text x="0" y="54" font-size="12" fill="#374151">老百姓</text>
+<rect x="120" y="40" width="180.0" height="18" rx="3" fill="#EF6A7B"/>
+<text x="306.0" y="54" font-size="11" fill="#374151">50.0%</text>
+<text x="0" y="84" font-size="12" fill="#374151">石头科技</text>
+<rect x="120" y="70" width="180.0" height="18" rx="3" fill="#EF6A7B"/>
+<text x="306.0" y="84" font-size="11" fill="#374151">50.0%</text>
+<text x="0" y="114" font-size="12" fill="#374151">泰格医药</text>
+<rect x="120" y="100" width="281.2" height="18" rx="3" fill="#EF6A7B"/>
+<text x="407.2" y="114" font-size="11" fill="#374151">78.1%</text>
+</svg>
+    <h2>高管授予占比</h2>
+    <svg viewBox="0 0 520 160" width="100%" style="max-width:520px" role="img">
+<text x="0" y="24" font-size="12" fill="#374151">温氏股份</text>
+<rect x="120" y="10" width="34.4" height="18" rx="3" fill="#1F3A5F"/>
+<text x="160.4" y="24" font-size="11" fill="#374151">5.8%</text>
+<text x="0" y="54" font-size="12" fill="#374151">老百姓</text>
+<rect x="120" y="40" width="360.0" height="18" rx="3" fill="#1F3A5F"/>
+<text x="486.0" y="54" font-size="11" fill="#374151">60.4%</text>
+<text x="0" y="84" font-size="12" fill="#374151">石头科技</text>
+<rect x="120" y="70" width="2.0" height="18" rx="3" fill="#1F3A5F"/>
+<text x="128.0" y="84" font-size="11" fill="#374151">0.0%</text>
+<text x="0" y="114" font-size="12" fill="#374151">奥比中光</text>
+<rect x="120" y="100" width="2.0" height="18" rx="3" fill="#1F3A5F"/>
+<text x="128.0" y="114" font-size="11" fill="#374151">0.0%</text>
+<text x="0" y="144" font-size="12" fill="#374151">泰格医药</text>
+<rect x="120" y="130" width="38.0" height="18" rx="3" fill="#1F3A5F"/>
+<text x="164.0" y="144" font-size="11" fill="#374151">6.4%</text>
+</svg>
+  </div>
+</div>
+
+<div class="card">
+<h2>样本明细（5 家 · 2026-09-02）</h2>
+<table><thead><tr><th>公司</th><th>代码</th><th>板块</th><th>工具</th>
+<th>激励总数(万)</th><th>折扣率</th><th>业绩考核</th><th>人数</th></tr></thead>
+<tbody><tr><td>温氏股份</td><td>300498</td><td>创业板</td><td>第二类限制性股票</td><td>19921.0</td><td>50%</td><td>ROE（相对同业对标）</td><td>6432</td></tr><tr><td>老百姓</td><td>603883</td><td>主板（上交所）</td><td>第一类限制性股票</td><td>978.3</td><td>50%</td><td>净利润</td><td>230</td></tr><tr><td>石头科技</td><td>688169</td><td>科创板</td><td>第二类限制性股票</td><td>89.3</td><td>50%</td><td>营业收入</td><td>87</td></tr><tr><td>奥比中光</td><td>688322</td><td>科创板</td><td>组合（股票期权+第二类限制性股票）</td><td>205.3</td><td>组合</td><td>营业收入或净利润（二选一）</td><td>209</td></tr><tr><td>泰格医药</td><td>300347</td><td>创业板</td><td>第二类限制性股票</td><td>950.0</td><td>78%</td><td>净利润（扣非归母，剔除股份支付）</td><td>513</td></tr></tbody></table>
+</div>
+
+<div class="foot">本页由 LTI-Insight 自动生成 · 自包含单文件 · 可直接离线打开或部署分享</div>
+</div></body></html>

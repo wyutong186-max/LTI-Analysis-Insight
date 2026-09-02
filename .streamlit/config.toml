@@ -1,0 +1,10 @@
+# Streamlit 配置（Streamlit 1.62 主题只能在 config.toml 设置，set_page_config(theme=) 已移除）
+[theme]
+primaryColor = "#E31837"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F7F8FA"
+textColor = "#1A1A2E"
+font = "sans serif"
+
+[server]
+headless = true

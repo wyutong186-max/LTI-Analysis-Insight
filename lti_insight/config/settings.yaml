@@ -1,0 +1,26 @@
+# LTI-Insight 运行配置
+# 路径若留空则使用项目内默认位置；模板与累积库为个人文件，可按需改成本机真实路径。
+
+paths:
+  # 用户模板（示例.xlsx）：方案/高管/业绩考核 三表，列结构严格对齐
+  template_xlsx: "C:/Users/YvonneT/Desktop/示例.xlsx"
+  # 工具自身的单一事实源（canonical records JSON）
+  records_json: "data/records.json"
+  # PDF 文本暂存
+  staging_dir: "data/staging"
+  # 按模板生成的活数据库工作簿
+  output_dir: "data/output"
+  # 报告输出
+  reports_dir: "data/reports"
+  # 单页洞察概览 HTML
+  portfolio_html: "data/portfolio.html"
+  # 桌面 6 表累积库（可选同步目标）；留空表示暂不配置
+  cumulative_db: ""
+
+cninfo:
+  keywords: ["股权激励", "限制性股票", "股票期权", "员工持股"]
+  max_pages: 20
+  sleep: 0.8
+
+# 字段映射版本（与抽取 fields.yaml 对齐）
+mapping_version: 1

@@ -1,0 +1,402 @@
+{
+  "meta": {
+    "report_period": "2026-08",
+    "generated_at": "2026-09-01",
+    "source": "巨潮资讯 cninfo 草案公告全文（人工复核抽取）",
+    "cadence": "每周增量更新 + 月底按时间范围生成报告（用户设定）",
+    "n_companies": 5,
+    "note": "占比以小数存储；折扣率=授予价/推算市价；ROE 列不在比较范围（用户约定）"
+  },
+  "records": [
+    {
+      "code": "300498",
+      "name": "温氏股份",
+      "board": "创业板",
+      "industry": "农林牧渔（畜禽养殖）",
+      "announce_date": "2026-08-07",
+      "aid": "1225462520",
+      "plan_name": "第五期限制性股票激励计划",
+      "tool_type": "第二类限制性股票",
+      "is_combo": false,
+      "combo_breakdown": null,
+      "total_shares_wan": 19921.0,
+      "total_pct": 0.0299,
+      "first_grant_wan": 18199.0,
+      "reserved_wan": 1722.0,
+      "has_reserved": true,
+      "grant_price": 7.46,
+      "pricing_basis": "前120个交易日交易均价50%孰高（7.46）",
+      "market_ref_price": 14.91,
+      "discount_rate": 0.5,
+      "vesting_schedule": [
+        0.3,
+        0.3,
+        0.4
+      ],
+      "vesting_labels": [
+        "首授第1期",
+        "首授第2期",
+        "首授第3期",
+        "预留:50%/50%"
+      ],
+      "validity_months": 60,
+      "perf_metric_type": "ROE（相对同业对标）",
+      "perf_relative": true,
+      "perf_base": "同行业对标企业ROE算术平均",
+      "perf_targets": "ROE高于同业均值 >=0%->归属60% / >=2%->70% / >=4%->80%",
+      "n_recipients": 6432,
+      "recipients_incl_exec": true,
+      "exec_share_pct": 0.0577,
+      "employee_coverage_pct": null,
+      "note": "第五期；首授6,432人含9名董事高管（小计1,150万股/5.77%）；阶梯式ROE相对考核。",
+      "executives": [
+        {
+          "name": "黎少松",
+          "title": "董事、总裁",
+          "qty_wan": 360
+        },
+        {
+          "name": "梁志雄",
+          "title": "副董事长",
+          "qty_wan": 80
+        },
+        {
+          "name": "严居然",
+          "title": "董事",
+          "qty_wan": 80
+        },
+        {
+          "name": "秦开田",
+          "title": "职工代表董事、副总裁",
+          "qty_wan": 110
+        },
+        {
+          "name": "林建兴",
+          "title": "副总裁、财务总监",
+          "qty_wan": 90
+        },
+        {
+          "name": "张祥斌",
+          "title": "副总裁、技术总监",
+          "qty_wan": 100
+        },
+        {
+          "name": "蒋荣金",
+          "title": "副总裁、董事会秘书",
+          "qty_wan": 110
+        },
+        {
+          "name": "范卫朝",
+          "title": "副总裁",
+          "qty_wan": 110
+        },
+        {
+          "name": "孙建宽",
+          "title": "副总裁",
+          "qty_wan": 110
+        }
+      ],
+      "company_attr": "民营企业"
+    },
+    {
+      "code": "603883",
+      "name": "老百姓",
+      "board": "主板（上交所）",
+      "industry": "医药零售连锁",
+      "announce_date": "2026-08-11",
+      "aid": "1225467544",
+      "plan_name": "2026年限制性股票激励计划",
+      "tool_type": "第一类限制性股票",
+      "is_combo": false,
+      "combo_breakdown": null,
+      "total_shares_wan": 978.29,
+      "total_pct": 0.0129,
+      "first_grant_wan": 884.44,
+      "reserved_wan": 93.85,
+      "has_reserved": true,
+      "grant_price": 6.37,
+      "pricing_basis": "前1个交易日交易均价50%孰高（6.37）",
+      "market_ref_price": 12.74,
+      "discount_rate": 0.5,
+      "vesting_schedule": [
+        0.5,
+        0.5
+      ],
+      "vesting_labels": [
+        "首授第1期(限售19m)",
+        "首授第2期(限售31m)",
+        "预留:50%/50%"
+      ],
+      "validity_months": 60,
+      "perf_metric_type": "净利润",
+      "perf_relative": false,
+      "perf_base": "2025年净利润（剔除股份支付费用）",
+      "perf_targets": "2027>=75% / 2028>=100%（2025基数，注：2025基数受大额减值拖累偏低）",
+      "n_recipients": 230,
+      "recipients_incl_exec": true,
+      "exec_share_pct": 0.6035,
+      "employee_coverage_pct": null,
+      "note": "唯一采用第一类RS（限售+回购注销）；副总裁万鑫一人获授590.35万股/60.35%，高度集中；额外6个月禁售。",
+      "executives": [
+        {
+          "name": "万鑫",
+          "title": "副总裁",
+          "qty_wan": 590.35
+        },
+        {
+          "name": "王忠新",
+          "title": "副总裁",
+          "qty_wan": 52.71
+        },
+        {
+          "name": "冯诗倪",
+          "title": "副总裁、董事会秘书",
+          "qty_wan": 25.3
+        },
+        {
+          "name": "陈立山",
+          "title": "副总裁、财务负责人",
+          "qty_wan": 12.65
+        },
+        {
+          "name": "林欢",
+          "title": "副总裁",
+          "qty_wan": 5.9
+        },
+        {
+          "name": "党娴",
+          "title": "副总裁",
+          "qty_wan": 5.9
+        },
+        {
+          "name": "苏世用",
+          "title": "副总裁",
+          "qty_wan": 5.06
+        },
+        {
+          "name": "张文帅",
+          "title": "副总裁",
+          "qty_wan": 5.06
+        },
+        {
+          "name": "谭坚",
+          "title": "职工代表董事",
+          "qty_wan": 3.37
+        }
+      ],
+      "company_attr": "民营企业"
+    },
+    {
+      "code": "688169",
+      "name": "石头科技",
+      "board": "科创板",
+      "industry": "智能清洁家电",
+      "announce_date": "2026-08-14",
+      "aid": "1225472310",
+      "plan_name": "2026年限制性股票激励计划",
+      "tool_type": "第二类限制性股票",
+      "is_combo": false,
+      "combo_breakdown": null,
+      "total_shares_wan": 89.26,
+      "total_pct": 0.003439,
+      "first_grant_wan": 89.26,
+      "reserved_wan": 0.0,
+      "has_reserved": false,
+      "grant_price": 56.32,
+      "pricing_basis": "前120个交易日交易均价50%孰高（56.31）",
+      "market_ref_price": 112.62,
+      "discount_rate": 0.5,
+      "vesting_schedule": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "vesting_labels": [
+        "第1期(授后12m)",
+        "第2期(授后24m)",
+        "第3期(授后36m)",
+        "第4期(授后48m)"
+      ],
+      "validity_months": 60,
+      "perf_metric_type": "营业收入",
+      "perf_relative": false,
+      "perf_base": "2025年营业收入",
+      "perf_targets": "2026>=15% / 2027>=20% / 2028>=25% / 2029>=30%（2025基数）",
+      "n_recipients": 87,
+      "recipients_incl_exec": false,
+      "exec_share_pct": 0.0,
+      "employee_coverage_pct": 0.0252,
+      "note": "纯骨干（管理/技术/业务），不含董事、高管、外籍；无预留，一次性授予。",
+      "executives": [],
+      "company_attr": "民营企业"
+    },
+    {
+      "code": "688322",
+      "name": "奥比中光",
+      "board": "科创板",
+      "industry": "3D视觉感知",
+      "announce_date": "2026-08-22",
+      "aid": "1225493711",
+      "plan_name": "2026年股票期权与限制性股票激励计划",
+      "tool_type": "组合（股票期权+第二类限制性股票）",
+      "is_combo": true,
+      "combo_breakdown": {
+        "期权万份": 122.2,
+        "期权占权益总额": 0.595,
+        "限制性万股": 83.08,
+        "限制性占权益总额": 0.405
+      },
+      "total_shares_wan": 205.28,
+      "total_pct": 0.005,
+      "first_grant_wan": 175.28,
+      "reserved_wan": 30.0,
+      "has_reserved": true,
+      "grant_price": 51.56,
+      "pricing_basis": "限制性=前20日均价103.11的50%(51.56)；期权行权价=前20日均价103.11(平价)",
+      "market_ref_price": 103.11,
+      "discount_rate": null,
+      "vesting_schedule": [
+        0.3,
+        0.3,
+        0.4
+      ],
+      "vesting_labels": [
+        "期权第1期",
+        "期权第2期",
+        "期权第3期(40%)",
+        "限制性另列"
+      ],
+      "validity_months": 60,
+      "perf_metric_type": "营业收入或净利润（二选一）",
+      "perf_relative": false,
+      "perf_base": "2028-2030年，营收或净利润",
+      "perf_targets": "2028:营收>=35亿或净利>=4亿 / 2029:>=48亿或>=7亿 / 2030:>=68亿或>=10亿（各设触发值80%）",
+      "n_recipients": 209,
+      "recipients_incl_exec": true,
+      "exec_share_pct": null,
+      "employee_coverage_pct": 0.2354,
+      "note": "本批唯一组合工具；期权占权益总额59.5%。期权等待期30/42/54个月，行权30/30/40；25人同时参与两计划。",
+      "executives": [
+        {
+          "name": "张丁军",
+          "title": "职工代表董事",
+          "qty_wan": 8.0
+        },
+        {
+          "name": "靳尚",
+          "title": "董事会秘书",
+          "qty_wan": 2.0
+        }
+      ],
+      "company_attr": "民营企业"
+    },
+    {
+      "code": "300347",
+      "name": "泰格医药",
+      "board": "创业板",
+      "industry": "医药CXO（临床CRO）",
+      "announce_date": "2026-08-29",
+      "aid": "1225530139",
+      "plan_name": "2026年A股限制性股票激励计划",
+      "tool_type": "第二类限制性股票",
+      "is_combo": false,
+      "combo_breakdown": null,
+      "total_shares_wan": 950.0,
+      "total_pct": 0.01103,
+      "first_grant_wan": 950.0,
+      "reserved_wan": 0.0,
+      "has_reserved": false,
+      "grant_price": 39.32,
+      "pricing_basis": "前1日/前60日均价50%孰高(25.16)——但实授予39.32（高于底线）",
+      "market_ref_price": 50.32,
+      "discount_rate": 0.781,
+      "vesting_schedule": [
+        0.4,
+        0.4,
+        0.2
+      ],
+      "vesting_labels": [
+        "第1期(授后12m)",
+        "第2期(授后24m)",
+        "第3期(授后36m)"
+      ],
+      "validity_months": 60,
+      "perf_metric_type": "净利润（扣非归母，剔除股份支付）",
+      "perf_relative": false,
+      "perf_base": "2025年净利润",
+      "perf_targets": "2026>=60% / 2027>=155% / 2028>=240%（A档；B档45%/103%/170%；X<B->0%）",
+      "n_recipients": 513,
+      "recipients_incl_exec": true,
+      "exec_share_pct": 0.0637,
+      "employee_coverage_pct": null,
+      "note": "授予价39.32（市价约50.32）折扣率78%，显著高于监管50%底线，偏股东友好；目标极其激进；含外籍员工；额外3月限售。",
+      "executives": [
+        {
+          "name": "闻增玉",
+          "title": "执行董事、总经理",
+          "qty_wan": 20.79
+        },
+        {
+          "name": "吴灏",
+          "title": "职工董事、联席总裁",
+          "qty_wan": 15.99
+        },
+        {
+          "name": "彭沂非",
+          "title": "首席运营官",
+          "qty_wan": 12.3
+        },
+        {
+          "name": "杨成成",
+          "title": "财务负责人",
+          "qty_wan": 9.46
+        },
+        {
+          "name": "李晓日",
+          "title": "董事会秘书",
+          "qty_wan": 1.95
+        }
+      ],
+      "company_attr": "民营企业"
+    }
+  ],
+  "aggregate": {
+    "n_companies": 5,
+    "boards": [
+      "主板（上交所）",
+      "创业板",
+      "科创板"
+    ],
+    "tool_mix": {
+      "组合(期权+第二类RS)": 1,
+      "单一第二类RS": 3,
+      "单一第一类RS": 1
+    },
+    "discount_rates": {
+      "石头科技": 0.5,
+      "温氏股份": 0.5,
+      "老百姓": 0.5,
+      "奥比中光": "组合:限制性50%/期权100%",
+      "泰格医药": 0.781
+    },
+    "perf_types": [
+      "ROE（相对同业对标）",
+      "净利润",
+      "净利润（扣非归母，剔除股份支付）",
+      "营业收入",
+      "营业收入或净利润（二选一）"
+    ],
+    "exec_included": [
+      "温氏股份",
+      "老百姓",
+      "奥比中光",
+      "泰格医药"
+    ],
+    "total_shares_wan": 22143.83,
+    "discount_floor_50": 3,
+    "discount_above_floor": [
+      "泰格医药"
+    ]
+  }
+}
